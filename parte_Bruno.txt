@@ -55,3 +55,15 @@ verificamos si existen problemas en la aplicacion 'manejoPedidos' con el comando
 creacion de la base de datos mediante el comando 
 
     python manage.py makemigrations
+
+abrir base de datos en DB Browser para ver el contenido
+
+generacion del codigo SQL para creacion de modelos mediante el siguiente comando con el numero de migracion
+
+    python manage.py sqlmigrate manejoPedidos 0001
+
+aplicacion del codigo SQL generado en la base de datos mediante el comando
+
+    python manage.py migrate
+
+abrir base de datos en DB Browser para ver el contenido
