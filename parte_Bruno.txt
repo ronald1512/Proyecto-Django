@@ -51,3 +51,7 @@ registramos 'manejoPedidos' a 'INSTALLED_APPS' en Settings.py
 verificamos si existen problemas en la aplicacion 'manejoPedidos' con el comando
 
     python manage.py check manejoPedidos
+
+creacion de la base de datos mediante el comando 
+
+    python manage.py makemigrations
