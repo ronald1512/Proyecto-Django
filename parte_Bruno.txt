@@ -1,0 +1,17 @@
+----------------->COMANDOS
+
+Django/Proyecto-Django
+
+python manage.py migrate
+
+python manage.py runserver
+
+
+
+<*************Inicio*********************>
+
+django-admin startproject Tienda ->creacion del nuevo proyecto
+
+cd Tienda ->nos vamos a la carpeta del proyecto
+
+python manage.py startapp manejoPedidos ->
