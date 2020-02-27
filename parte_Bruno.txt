@@ -14,4 +14,4 @@ django-admin startproject Tienda ->creacion del nuevo proyecto
 
 cd Tienda ->nos vamos a la carpeta del proyecto
 
-python manage.py startapp manejoPedidos ->
+python manage.py startapp manejoPedidos ->comando para la creacion de la primera aplicacion dentro del proyecto tienda
