@@ -18,21 +18,15 @@ python manage.py startapp manejoPedidos ->comando para la creacion de la primera
 
 abrimos  Tienda>menejoPedidos>models.py
 
-creamos los modelos cliente, producto, pedido:
+creamos los modelos:
 
-    class Cliente( models.Model ):
-        nombre = models.CharField( max_length = 30 )
-        direccion = models.CharField( max_length = 50 ) 
-        email = models.EmailField() 
-        telefono = models.IntegerField()
+    class Universidad( models.Model ):
+        nombre = models.CharField( max_length = 75 )
+        direccion = models.CharField( max_length = 250 ) 
 
-    class Producto ( models.Model ):
-        nombre = models.CharField( max_length = 30 )
-        precio = models.IntegerField()
-
-    class Pedido( models.Model ):
-        numero = models.IntegerField()
-        fecha = models.DateField()
+    class Facultad( models.Model ):
+        nombre = models.CharField( max_length = 75 )
+        universidad = models.ForeignKey(Universidad, on_delete = models.CASCADE)
 
 abrimos  Tienda>Tienda>Settings.py
 
@@ -52,18 +46,58 @@ verificamos si existen problemas en la aplicacion 'manejoPedidos' con el comando
 
     python manage.py check manejoPedidos
 
-creacion de la base de datos mediante el comando 
+*Migraciones = es la manera en que Django prepara los cambios realizados en el modelo
+para aplicarlo a la base de datos.
+
+creamos la migracion con los modelos creados lo cual genera la base de datos vacia
 
     python manage.py makemigrations
 
 abrir base de datos en DB Browser para ver el contenido
 
-generacion del codigo SQL para creacion de modelos mediante el siguiente comando con el numero de migracion
-
-    python manage.py sqlmigrate manejoPedidos 0001
-
-aplicacion del codigo SQL generado en la base de datos mediante el comando
+aplicamos la migracion creada para ver los modelos creados en la base de datos
 
     python manage.py migrate
 
 abrir base de datos en DB Browser para ver el contenido
+
+insertamos registros en la base de datos
+
+accedemos a la shell mediante el comando
+
+    python manage.py shell
+
+importamos los modelos con los cuales vamos a trabajar
+
+    from manejoPedidos.models import Universidad, Facultad
+
+creamos la variable universidad1
+
+    universidad1 = Universidad( nombre = 'San Carlos', direccion = 'Guatemala' )
+
+la guardamos en la base de datos
+
+    universidad1.save()
+
+creamos la variable universidad2 con la sintaxis para insertar en una sola linea
+
+    universidad2 = Universidad.objects.create( nombre = 'Rafael Landivar', direccion = 'Guatemala' )
+
+creamos la variable Facultad1
+
+    facultad1 = Facultad.objects.create( nombre = 'Ingenieria', universidad = universidad1)
+
+modificamos la variable facultad1
+
+    facultad1.universidad = universidad2
+    facultad1.save()
+
+eliminamos el registro con la universidad2
+
+    eliminar = Universidad.objects.get( id = 2 )
+    eliminar.delete()    
+
+seleccionamos todos los registros en la tabla universidad
+
+    universidades = Universidad.objects.all()
+    universidades

@@ -1,20 +1,20 @@
 from django.db import models
 
-# Una clase por cada tabla que se encuentre dentro de la base de datos
+#Una clase por cada tabla que se encuentre dentro del modelo de la base de datos
 
-class Cliente( models.Model ):
-    nombre = models.CharField( max_length = 30 )
-    direccion = models.CharField( max_length = 50 ) 
-    email = models.EmailField() 
-    telefono = models.IntegerField()
+#Django crea automaticamente las llaves primarias auto-incrementables con el nombre de atributo 'id'
+    
+class Universidad( models.Model ):
+    nombre = models.CharField( max_length = 75 )
+    direccion = models.CharField( max_length = 250 ) 
 
-class Producto ( models.Model ):
-    nombre = models.CharField( max_length = 30 )
-    precio = models.IntegerField()
+class Facultad( models.Model ):
+    nombre = models.CharField( max_length = 75 )
+    universidad = models.ForeignKey(Universidad, on_delete = models.CASCADE) #definicion de una llave foranea
 
-class Pedido( models.Model ):
-    numero = models.IntegerField()
-    fecha = models.DateField()
+
+
+
 
 
 
