@@ -15,3 +15,21 @@ django-admin startproject Tienda ->creacion del nuevo proyecto
 cd Tienda ->nos vamos a la carpeta del proyecto
 
 python manage.py startapp manejoPedidos ->comando para la creacion de la primera aplicacion dentro del proyecto tienda
+
+abrimos models.py
+
+creamos los modelos cliente, producto, pedido:
+
+    class Cliente( models.Model ):
+        nombre = models.CharField( max_length = 30 )
+        direccion = models.CharField( max_length = 50 ) 
+        email = models.EmailField() 
+        telefono = models.IntegerField()
+
+    class Producto ( models.Model ):
+        nombre = models.CharField( max_length = 30 )
+        precio = models.IntegerField()
+
+    class Pedido( models.Model ):
+        numero = models.IntegerField()
+        fecha = models.DateField()
