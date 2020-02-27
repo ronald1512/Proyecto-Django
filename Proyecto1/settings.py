@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Proyecto1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['D:/Universidad/PRACTICAS_INTER/DJANGO/Taller_Checha/Taller_Checha/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
