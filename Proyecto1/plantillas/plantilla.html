@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <h1>{{titulo}}</h1>
+        <h2>El tiempo actual es: {{tiempo_actual}}</h2>
+        <p>El dia dia hoy es: {{tiempo_actual.day|add:10}}</p>
+        <p>El anio actual es: {{tiempo_actual.year}}</p>
+        <p>La hora actual es: {{tiempo_actual.second}}</p>
+        <p>Nombre del perro: {{objeto_perro.nombre|lower}}</p><br>
+        <p>Raza del perro: {{objeto_perro.raza|upper|add:" Guatemalteco"}}</p><br>
+        <p>Edad del perro: {{objeto_perro.edad}}</p><br>
+        
+        {% if numeros %}
+            <ul>
+            {% for numero in numeros %}
+                <li>{{numero.upper}}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>La lista esta vacia</p>
+        {% endif %}
+    </body>
+</html>
